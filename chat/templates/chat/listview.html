@@ -1,0 +1,33 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="mt-5">
+    {% for item in object_list %}
+    <div class="alert alert-light" role="alert">
+      <div class="d-flex">
+        <h5 class="me-3"><strong>{{ item.poster }}</strong></h5>
+        <p>{{ item.created_at }}</p>
+      </div>
+      <p>
+        <a href="{% url 'detail' item.pk %}" class="link-dark text-decoration-none">{{ item.message }}</a>
+      </p>
+      <div class="d-flex">
+        <p>
+          <a href="#" class="btn btn-outline-primary disabled" role="button" aria-disabled="true">
+            👍 {{ item.good}}件
+          </a>
+        </p>
+        {% if item.poster == user.username %}
+        <p>
+          <a href="{% url 'delete' item.pk %}" class="btn btn-outline-secondary ms-3">投稿を削除</a>
+        </p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'chat/base.html' %}
+
+{% block header %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'top' %}">djangoChatapp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="#" class="nav-link">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex">
+        <li class="nav-item">
+          <a href="{% url 'signin' %}" class="btn btn-link link-dark text-decoration-none">サインイン</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'signup' %}" class="btn btn-outline-dark">サインアップ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% endblock header %}
+
+{% block content %}
+
+<div class="container">
+  <main role="main" class="inner cover mt-5">
+    <h1 class="cover-heading">ようこそ、djangoChatappへ</h1>
+    <p class="lead mt-5">Djangoは、Pythonで実装されたWebアプリケーションフレームワークです。</p>
+    <p class="lead">djangoChatappはDjangoでつくられたシンプルなチャットアプリです。</p>
+    <p class="lead mt-5">
+      <a href="https://github.com/BigMcQueen" class="btn btn-lg btn-secondary">開発者のGitHub</a>
+    </p>
+  </main>
+</div>
+
+{% endblock content %}

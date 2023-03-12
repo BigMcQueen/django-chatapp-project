@@ -1,0 +1,54 @@
+{% extends 'chat/base.html' %}
+
+{% block header %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'top' %}">djangoChatapp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="#" class="nav-link">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex">
+        <li class="nav-item">
+          <a href="{% url 'signin' %}" class="btn btn-link link-dark text-decoration-none">サインイン</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock header %}
+
+{% block content %}
+
+<body class="text-center">
+  <div class="container">
+    <main class="form-signin">
+      <form method="POST">{% csrf_token %}
+        <h1 class="h3 mt-5 mb-3 fw-normal">Please sign up</h1>
+        <p class="m-3">{{ context }}</p>
+        <div class="form-floating">
+          <input type="text" class="form-control mb-5" id="floatingInput" placeholder="Username" name="username">
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control mb-5" id="floatingPassword" placeholder="Password" name="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-50 btn btn-lg btn-primary mb-5" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+      </form>
+    </main>
+  </div>
+</body>
+
+{% endblock content %}

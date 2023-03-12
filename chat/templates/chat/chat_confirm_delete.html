@@ -1,0 +1,28 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="mt-5">
+    <form method="post">{% csrf_token %}
+      <p>本当にこの投稿を削除しますか？</p>
+
+      <div class="alert alert-light" role="alert">
+        <div class="d-flex">
+          <h5 class="me-3"><strong>{{ object.poster }}</strong></h5>
+          <p>{{ object.created_at }}</p>
+        </div>
+        <p>{{ object.message }}</p>
+        <div class="d-flex">
+          <p>
+            <a href="#" class="btn btn-outline-primary disabled" role="button" aria-disabled="true">
+              👍 {{ object.good}}件
+            </a>
+          </p>
+        </div>
+      </div>
+      {{ form }}
+      <input type="submit" value="削除を確定">
+    </form>
+  </div>
+</div>
+{% endblock content %}
